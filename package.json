@@ -1,0 +1,28 @@
+{
+  "name": "fct_fase_3",
+  "version": "1.0.0",
+  "description": "Initial commit",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./server/src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tangibleblaqy/Taskboard.RS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/tangibleblaqy/Taskboard.RS/issues"
+  },
+  "homepage": "https://github.com/tangibleblaqy/Taskboard.RS#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "dotenv": "^17.4.1",
+    "nodemon": "^3.1.14"
+  }
+}
