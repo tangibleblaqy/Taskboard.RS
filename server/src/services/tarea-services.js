@@ -4,14 +4,21 @@ import { randomUUID } from "crypto";
 //validar tareas
 const categoriasValidas = ["skilling", "bossing", "otros"];
 const validarTarea = (nombre, categoria, id = null) => {
-    if(!categoriasValidas.includes(categoria)) {
-        return "La categoría no es válida" ;
-    }
     if (!nombre) {
-        return "Nombre no valido";
+        const err = new Error("Nombre no valido");
+        err.status = 400;
+        throw err;
+    }
+
+    if(!categoriasValidas.includes(categoria)) {
+        const err = new Error("La categoría no es válida");
+        err.status = 400;
+        throw err;
     }
     if(tareas.some(tarea => tarea.nombre.toLowerCase() === nombre.toLowerCase() && tarea.id !== id)) {
-        return "No puede haber tareas repetidas";
+        const err = new Error("No puede haber tareas repetidas");
+        err.status = 400;
+        throw err;
     }
     return null;
 }
@@ -23,8 +30,7 @@ export function recuperarTareasServices() {
 
 //crear tareas
 export function crearTareaServices(nombre, categoria) {
-    const error = validarTarea(nombre, categoria);
-    if (error) throw new Error(error);
+    validarTarea(nombre, categoria);
 
     const nuevaTarea = { 
         id: randomUUID(), 
@@ -39,11 +45,14 @@ export function crearTareaServices(nombre, categoria) {
 
 //editar tareas
 export function editarTareaServices(nombreNuevo, categoriaNueva, id) {
-    const error = validarTarea(nombreNuevo, categoriaNueva, id);
-    if (error) throw new Error(error);
-
     const tarea = tareas.find(tarea => tarea.id === id);
-    if (!tarea) throw new Error("Tarea no encontrada");
+    if (!tarea) {
+        const err = new Error("Tarea no encontrada");
+        err.status = 404;
+        throw err;
+    }
+
+    validarTarea(nombreNuevo, categoriaNueva, id);
 
     tarea.nombre = nombreNuevo;
     tarea.categoria = categoriaNueva;
@@ -53,7 +62,11 @@ export function editarTareaServices(nombreNuevo, categoriaNueva, id) {
 //completar tarea
 export function completarTareaServices(id) {
     const tarea = tareas.find(tarea => tarea.id === id);
-    if (!tarea) throw new Error("Tarea no encontrada");
+    if (!tarea) {
+        const err = new Error("Tarea no encontrada");
+        err.status = 404;
+        throw err;
+    } 
 
     tarea.completada = true;
     return tarea;
@@ -62,7 +75,11 @@ export function completarTareaServices(id) {
 //eliminar tareas
 export function eliminarTareaServices(id) {
     const index = tareas.findIndex(tarea => tarea.id === id);
-    if (index === -1) throw new Error("Tarea no encontrada");
+    if (index === -1) {
+        const err = new Error("Tarea no encontrada");
+        err.status = 404;
+        throw err;
+    } 
 
     const [tareaEliminada] = tareas.splice(index, 1);
     return { idEliminado: tareaEliminada.id };
@@ -71,7 +88,7 @@ export function eliminarTareaServices(id) {
 //completar todo
 export function completarTodoServices() {
     tareas.forEach(tarea => tarea.completada = true);
-    return { exito: true};
+    return { exito: true };
 }
 
 //borrar tareas completadas

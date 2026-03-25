@@ -1,13 +1,13 @@
 import express from "express";
 
 const router = express.Router();
-import { recuperarTareasController } from "../controller/tareas-controllers.js";
-import { crearTareaController } from "../controller/tareas-controllers.js";
-import { editarTareaController } from "../controller/tareas-controllers.js";
-import { eliminarTareaController } from "../controller/tareas-controllers.js";
-import { completarTareaController } from "../controller/tareas-controllers.js";
-import { eliminarTareasCompletadasController } from "../controller/tareas-controllers.js";
-import { completarTodoController } from "../controller/tareas-controllers.js";
+import { recuperarTareasController } from "../controllers/tareas-controllers.js";
+import { crearTareaController } from "../controllers/tareas-controllers.js";
+import { editarTareaController } from "../controllers/tareas-controllers.js";
+import { eliminarTareaController } from "../controllers/tareas-controllers.js";
+import { completarTareaController } from "../controllers/tareas-controllers.js";
+import { eliminarTareasCompletadasController } from "../controllers/tareas-controllers.js";
+import { completarTodoController } from "../controllers/tareas-controllers.js";
 
 //GET tareas
 router.get("/tareas", recuperarTareasController);
