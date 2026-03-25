@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"">
     <head>
         <meta charset="utf-8">
         <title>TASKBOARD.RS</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="/main.js" defer></script>
-        <link rel="stylesheet" href="/style.css">
-        <link rel="stylesheet" href="/output.css">
+        <script src="src/js/main.js" defer></script>
+        <link rel="stylesheet" href="css/output.css">
     </head>
     <body class="min-h-screen flex flex-col">
         <header class="m-0 flex items-center shadow-md">
-            <img src="/recursos/Gnomechild_(Steam_Emoticon).png" alt="gnomechild Icon" class="inline-block">
+            <img src="/public/assets/Gnomechild_(Steam_Emoticon).png" alt="gnomechild Icon" class="inline-block">
             <h1 class="text-3xl p-0 inline-block">TASKBOARD.RS</h1>
             <button id="tema" class="tema ml-auto mr-2.5 hover:text-white">
                 <svg class="botonPeq" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-moon-icon lucide-sun-moon"><path d="M12 2v2"/><path d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715"/><path d="M16 12a4 4 0 0 0-4-4"/><path d="m19 5-1.256 1.256"/><path d="M20 12h2"/></svg>
@@ -53,7 +52,7 @@
                                 <p class="inline-block">Otros: <strong id="otrasTareas">0</strong></p>
                             </div>
                             <div>
-                                <img src="/recursos/Party_(emote).gif" alt="baile celebracion" id="baile" class="w-28 h-50 hidden">
+                                <img src="./assets/Party_(emote).gif" alt="baile celebracion" id="baile" class="w-28 h-50 hidden">
                             </div>
                         </div>
                     </section>
@@ -63,7 +62,7 @@
                         <h2>Tareas actuales:</h2>
                     </div>
                     <div id="chathead" class="flex justify-center">
-                        <img src="/recursos/Gnome_child_chathead.png" alt="gnomechild_chatbox">
+                        <img src="./assets/Gnome_child_chathead.png" alt="gnomechild_chatbox">
                     </div>
                     <div id="botonTodo" class="pb-2.5 flex gap-2 justify-around">
                         <button id="completarTodo" class="p-2 flex-1 border hoverVerde">Completar todo</button>

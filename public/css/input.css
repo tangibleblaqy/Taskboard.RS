@@ -20,8 +20,6 @@
   /*Borde*/
   --bordeClaro: black;
   --bordeOscuro: rgb(128,128,128);
-
-  /**/
 }
 
 *, *::before, *::after {
@@ -43,6 +41,9 @@ html{
 }
 
 header{
+  top: 0;
+  position: sticky;
+  z-index: 100;
   background-color: var(--colorFondoSecundarioClaro)
 }
 
@@ -73,6 +74,7 @@ a:hover{
 }
 
 footer{
+  padding-bottom: 100000px;
   background-color: var(--colorFondoSecundarioClaro);
   color: var(--colorTextoClaro);
   text-align: center;
@@ -104,7 +106,7 @@ footer{
   background-color: #3E3529;
   border-width: 10px;
   border-style: solid;
-  border-image: url(/recursos/Inventory_tab.png);
+  border-image: url(../assets/Inventory_tab.png);
   border-image-slice: 10;
   border-image-repeat: stretch;
 }
@@ -133,8 +135,3 @@ footer{
   border-color: #C0A786;
 }
 
-
-
-@media  (min-width: 768px) {
-    
-}

@@ -1,4 +1,4 @@
-/*! tailwindcss v4.2.1 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.2.2 | MIT License | https://tailwindcss.com */
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -194,9 +194,6 @@
   .w-28 {
     width: calc(var(--spacing) * 28);
   }
-  .max-w-full {
-    max-width: 100%;
-  }
   .flex-1 {
     flex: 1;
   }
@@ -227,9 +224,6 @@
   .gap-10 {
     gap: calc(var(--spacing) * 10);
   }
-  .overflow-x-auto {
-    overflow-x: auto;
-  }
   .overflow-y-auto {
     overflow-y: auto;
   }
@@ -242,9 +236,6 @@
   }
   .p-1 {
     padding: calc(var(--spacing) * 1);
-  }
-  .p-1\.5 {
-    padding: calc(var(--spacing) * 1.5);
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
@@ -273,12 +264,6 @@
   .text-3xl {
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
-  }
-  .whitespace-nowrap {
-    white-space: nowrap;
-  }
-  .line-through {
-    text-decoration-line: line-through;
   }
   .shadow-md {
     --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
@@ -361,6 +346,9 @@ html {
   border: var(--bordeClaro);
 }
 header {
+  top: 0;
+  position: sticky;
+  z-index: 100;
   background-color: var(--colorFondoSecundarioClaro);
 }
 .dark header {
@@ -384,6 +372,7 @@ a:hover {
   text-decoration: underline;
 }
 footer {
+  padding-bottom: 100000px;
   background-color: var(--colorFondoSecundarioClaro);
   color: var(--colorTextoClaro);
   text-align: center;
@@ -409,7 +398,7 @@ footer {
   background-color: #3E3529;
   border-width: 10px;
   border-style: solid;
-  border-image: url(/recursos/Inventory_tab.png);
+  border-image: url(../assets/Inventory_tab.png);
   border-image-slice: 10;
   border-image-repeat: stretch;
 }
