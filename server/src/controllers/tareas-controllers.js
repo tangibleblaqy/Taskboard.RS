@@ -1,66 +1,48 @@
-import {
-    recuperarTareasServices,
-    crearTareaServices,
-    editarTareaServices,
-    completarTareaServices,
-    eliminarTareaServices,
-    completarTodoServices,
-    eliminarTareasCompletadasServices   
-} from "../services/tarea-services.js";
+import * as tareasService from "../services/tarea-services.js";
 
 //recuperar tareas
-export function recuperarTareasController(req, res) {
-    const tareas = recuperarTareasServices();
-    return res.status(200).json(tareas);
+export function recuperarTareas(req, res) {
+    const response = tareasService.recuperarTareas();
+    return res.status(200).json(response);
 }
 
 //crear tareas
-export function crearTareaController(req, res, next) {
+export function crearTarea(req, res, next) {
     try{
-        const nombre = req.body.nombre?.trim();
-        const categoria = req.body.categoria;
-        const tarea = crearTareaServices(nombre, categoria);
+        const response = tareasService.crearTarea(req.body.nombre?.trim(), req.body.categoria);
         
-        return res.status(201).json(tarea);
+        return res.status(201).json(response);
     } catch (err) {
         next(err);
     }
 }
 
 //editar tareas
-export function editarTareaController(req, res, next) {
-    const id = req.params.id;
-    const nombreNuevo = req.body.nombre?.trim();
-    const categoriaNueva = req.body.categoria;
-    
+export function editarTarea(req, res, next) {
     try{
-        const tarea = editarTareaServices(nombreNuevo, categoriaNueva, id);
+        const response = tareasService.editarTarea(req.body.nombre?.trim(), req.body.categoria, req.params.id);
 
-        return res.status(200).json(tarea);
+        return res.status(200).json(response);
     } catch (err) {
         next(err);
     }
 }
 
 //completar tarea
-export function completarTareaController(req, res, next) {
-    const id = req.params.id;
-
+export function completarTarea(req, res, next) {
     try{
-        const tarea = completarTareaServices(id);
+        const response = tareasService.completarTarea(req.params.id);
 
-        return res.status(200).json(tarea);
+        return res.status(200).json(response);
     } catch (err) {
         next(err);
     }
 }
 
 //eliminar tareas
-export function eliminarTareaController(req, res, next) {
-    const id = req.params.id;
-
+export function eliminarTarea(req, res, next) {
     try{
-        const response = eliminarTareaServices(id);
+        const response = tareasService.eliminarTarea(req.params.id);
 
         return res.status(200).json(response);
     } catch (err) {
@@ -69,15 +51,15 @@ export function eliminarTareaController(req, res, next) {
 }
 
 //completar todo
-export function completarTodoController(req, res) {
-    const resultado = completarTodoServices();
+export function completarTodo(req, res) {
+    const resultado = tareasService.completarTodo();
 
     return res.status(200).json(resultado);
 }
 
 //borrar tareas completadas
-export function eliminarTareasCompletadasController(req, res) {
-    const resultado = eliminarTareasCompletadasServices();
+export function eliminarTareasCompletadas(req, res) {
+    const resultado = tareasService.eliminarTareasCompletadas();
 
     return res.status(200).json(resultado);
 }

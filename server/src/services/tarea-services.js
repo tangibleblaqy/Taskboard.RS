@@ -24,12 +24,12 @@ const validarTarea = (nombre, categoria, id = null) => {
 }
 
 //mostrar tareas
-export function recuperarTareasServices() {
+export function recuperarTareaas() {
     return tareas;
 }
 
 //crear tareas
-export function crearTareaServices(nombre, categoria) {
+export function crearTareas(nombre, categoria) {
     validarTarea(nombre, categoria);
 
     const nuevaTarea = { 
@@ -44,7 +44,7 @@ export function crearTareaServices(nombre, categoria) {
 }
 
 //editar tareas
-export function editarTareaServices(nombreNuevo, categoriaNueva, id) {
+export function editarTareas(nombreNuevo, categoriaNueva, id) {
     const tarea = tareas.find(tarea => tarea.id === id);
     if (!tarea) {
         const err = new Error("Tarea no encontrada");
@@ -60,7 +60,7 @@ export function editarTareaServices(nombreNuevo, categoriaNueva, id) {
 }
 
 //completar tarea
-export function completarTareaServices(id) {
+export function completarTareas(id) {
     const tarea = tareas.find(tarea => tarea.id === id);
     if (!tarea) {
         const err = new Error("Tarea no encontrada");
@@ -73,7 +73,7 @@ export function completarTareaServices(id) {
 }
 
 //eliminar tareas
-export function eliminarTareaServices(id) {
+export function eliminarTareas(id) {
     const index = tareas.findIndex(tarea => tarea.id === id);
     if (index === -1) {
         const err = new Error("Tarea no encontrada");
@@ -86,15 +86,20 @@ export function eliminarTareaServices(id) {
 }
 
 //completar todo
-export function completarTodoServices() {
+export function completarTodas() {
     tareas.forEach(tarea => tarea.completada = true);
-    return { exito: true };
 }
 
 //borrar tareas completadas
-export function eliminarTareasCompletadasServices() {
+export function eliminarTareasCompletadaas() {
     const tareasNoCompletadas = tareas.filter(tarea => !tarea.completada);
+    const tareasCompletadas = tareas.filter(tarea => tarea.completada);
+    const idTareasEliminadas = [];
+    tareasCompletadas.forEach(tarea => {
+        const index = tareas.findIndex(t => t.id === tarea.id);
+        idTareasEliminadas.push(tarea.id);
+    });
     tareas.length = 0;
     tareas.push(...tareasNoCompletadas);
-    return { exito: true };
+    return { idTareasEliminadas };
 }

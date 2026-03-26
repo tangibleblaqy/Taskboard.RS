@@ -1,34 +1,28 @@
 import express from "express";
 
 const router = express.Router();
-import { recuperarTareasController } from "../controllers/tareas-controllers.js";
-import { crearTareaController } from "../controllers/tareas-controllers.js";
-import { editarTareaController } from "../controllers/tareas-controllers.js";
-import { eliminarTareaController } from "../controllers/tareas-controllers.js";
-import { completarTareaController } from "../controllers/tareas-controllers.js";
-import { eliminarTareasCompletadasController } from "../controllers/tareas-controllers.js";
-import { completarTodoController } from "../controllers/tareas-controllers.js";
+import * as tareasController from "../controllers/tareas-controller.js";
 
 //GET tareas
-router.get("/tareas", recuperarTareasController);
+router.get("/", tareasController.recuperarTareas);
 
 //POST tareas
-router.post("/tareas", crearTareaController);
+router.post("/", tareasController.crearTarea);
 
 //PATCH completar todas las tareas
-router.patch("/tareas/completados", completarTodoController);
+router.patch("/completados", tareasController.completarTodo);
 
 //DELETE tareas completadas
-router.delete("/tareas/completados", eliminarTareasCompletadasController);
+router.delete("/completados", tareasController.eliminarTareasCompletadas);
 
 //Req especificos con id
 //PATCH completar tarea
-router.patch("/tareas/completados/:id", completarTareaController);
+router.patch("/completados/:id", tareasController.completarTarea);
 
 //PATCH tareas
-router.patch("/tareas/:id", editarTareaController);
+router.patch("/:id", tareasController.editarTarea);
 
 //DELETE tareas
-router.delete("/tareas/:id", eliminarTareaController);
+router.delete("/:id", tareasController.eliminarTarea);
 
 export const tareasRouter = router; 
