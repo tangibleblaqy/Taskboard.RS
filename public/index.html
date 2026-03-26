@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es"">
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <title>TASKBOARD.RS</title>
@@ -7,84 +7,85 @@
         <script src="src/js/main.js" defer></script>
         <link rel="stylesheet" href="css/output.css">
     </head>
-    <body class="min-h-screen flex flex-col">
-        <header class="m-0 flex items-center shadow-md">
-            <img src="/public/assets/Gnomechild_(Steam_Emoticon).png" alt="gnomechild Icon" class="inline-block">
-            <h1 class="text-3xl p-0 inline-block">TASKBOARD.RS</h1>
-            <button id="tema" class="tema ml-auto mr-2.5 hover:text-white">
-                <svg class="botonPeq" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-moon-icon lucide-sun-moon"><path d="M12 2v2"/><path d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715"/><path d="M16 12a4 4 0 0 0-4-4"/><path d="m19 5-1.256 1.256"/><path d="M20 12h2"/></svg>
+    <body>
+        <header>
+            <img src="/public/assets/Gnomechild_(Steam_Emoticon).png" alt="gnomechild Icon">
+            <h1>TASKBOARD.RS</h1>
+            <button id="tema">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2"/><path d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715"/><path d="M16 12a4 4 0 0 0-4-4"/><path d="m19 5-1.256 1.256"/><path d="M20 12h2"/></svg>
             </button>
         </header>
-        <main class="flex-1 flex flex-col lg:flex-row lg:justify-center">
-                <aside class="mt-5 lg:w-1/3 flex flex-col md:flex-row lg:flex-col">
-                    <div class="crearBuscar md:w-1/2 lg:w-auto px-2.5 flex flex-col">
-                        <form id="formularioTarea" class="flex flex-col">
-                            <h2 class="p-1">Crear tarea</h2>
-                            <div class="flex gap-1">
-                                <select id="tipo" class="border flex-none">
-                                    <option value="skilling">Skilling</option>
-                                    <option value="bossing">Bossing</option>
-                                    <option value="otro">Otro</option>
-                                </select>
-                                <input type="text" placeholder="Nombre de la tarea..." name="input" id="creador" class="pl-1 border flex-1">
-                            </div>
-                        </form>
-                        <section id="seccionBuscador" class="flex flex-col">
-                            <h2 class="p-1">Buscar tarea</h2>
-                            <div class="flex">
-                                <input type="search" placeholder="Buscar una tarea..." name="buscar" id="buscador" class="pl-1 border flex-1">
-                            </div>
-                        </section>
-                    </div>
-                    <section id="estadisticas" class="p-2.5 flex flex-col justify-center">
-                        <div class="p-2.5 flex justify-center">
-                            <h2>Estadísticas:</h2>
+
+        <main>
+            <aside>
+                <div class="panel-lateral">
+                    <form id="formularioTarea">
+                        <h2>Crear tarea</h2>
+                        <div class="fila-input">
+                            <select id="tipo">
+                                <option value="skilling">Skilling</option>
+                                <option value="bossing">Bossing</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                            <input type="text" placeholder="Nombre de la tarea..." name="input" id="creador">
                         </div>
-                        <div id="textoFelicitacion" class="p-2.5 pt-0 flex justify-center">
-                            <h2>¡Has completado todas tus tareas!</h2>
-                        </div>
-                        <div class="flex flex-row justify-center gap-10">
-                            <div class="flex flex-col justify-center">
-                                <p class="inline-block">Tareas Totales: <strong id="tareasTotales">0</strong></p>
-                                <p class="inline-block">Completadas: <strong id="tareasCompletas">0</strong></p>
-                                <p class="inline-block">Skilling: <strong id="tareasSkilling">0</strong></p>
-                                <p class="inline-block">Bossing: <strong id="tareasBossing">0</strong></p>
-                                <p class="inline-block">Otros: <strong id="otrasTareas">0</strong></p>
-                            </div>
-                            <div>
-                                <img src="./assets/Party_(emote).gif" alt="baile celebracion" id="baile" class="w-28 h-50 hidden">
-                            </div>
-                        </div>
+                    </form>
+
+                    <section id="seccionBuscador">
+                        <h2>Buscar tarea</h2>
+                        <input type="search" placeholder="Buscar una tarea..." name="buscar" id="buscador">
                     </section>
-                </aside>
-                <section class="tareas px-1 borderOSRS flex-1 flex flex-col lg:w-2/3">
-                    <div class="py-2.5 flex justify-center">
-                        <h2>Tareas actuales:</h2>
+                </div>
+
+                <section id="estadisticas">
+                    <div class="estadisticas-titulo">
+                        <h2>Estadísticas:</h2>
                     </div>
-                    <div id="chathead" class="flex justify-center">
-                        <img src="./assets/Gnome_child_chathead.png" alt="gnomechild_chatbox">
+                    <div id="textoFelicitacion">
+                        <h2>¡Has completado todas tus tareas!</h2>
                     </div>
-                    <div id="botonTodo" class="pb-2.5 flex gap-2 justify-around">
-                        <button id="completarTodo" class="p-2 flex-1 border hoverVerde">Completar todo</button>
-                        <button id="borrarTodo" class="p-2 flex-1 border hoverRojo">Borrar completados</button>
-                    </div>
-                    <div id="filtros" class="flex gap-2 justify-around">
-                        <button id="completado" class="p-2 flex-1 border hoverNeutro">Completadas</button>
-                        <button id="skilling" class="p-2 flex-1 border hoverNeutro">Skilling</button>
-                        <button id="bossing" class="p-2 flex-1 border hoverNeutro">Bossing</button>
-                        <button id="otro" class="p-2 flex-1 border hoverNeutro">Otro</button>
-                    </div>
-                    <div id="tareas" class="py-2.5 flex flex-col justify-center gap-2 overflow-y-auto">
+                    <div class="estadisticas-contenido">
+                        <div class="estadisticas-lista">
+                            <p>Tareas Totales: <strong id="tareasTotales">0</strong></p>
+                            <p>Completadas: <strong id="tareasCompletas">0</strong></p>
+                            <p>Skilling: <strong id="tareasSkilling">0</strong></p>
+                            <p>Bossing: <strong id="tareasBossing">0</strong></p>
+                            <p>Otros: <strong id="otrasTareas">0</strong></p>
+                        </div>
+                        <img src="./assets/Party_(emote).gif" alt="baile celebracion" id="baile">
                     </div>
                 </section>
+            </aside>
+
+            <section class="panel-tareas borderOSRS">
+                <div class="seccion-titulo">
+                    <h2>Tareas actuales:</h2>
+                </div>
+                <div id="chathead">
+                    <img src="./assets/Gnome_child_chathead.png" alt="gnomechild_chatbox">
+                </div>
+                <div id="botonTodo">
+                    <button id="completarTodo" class="botonCompletar">Completar todo</button>
+                    <button id="borrarTodo" class="botonBorrar">Borrar completados</button>
+                </div>
+                <div id="filtros">
+                    <button id="completado" class="botonFiltro">Completadas</button>
+                    <button id="skilling" class="botonFiltro">Skilling</button>
+                    <button id="bossing" class="botonFiltro">Bossing</button>
+                    <button id="otro" class="botonFiltro">Otro</button>
+                </div>
+                <div id="tareas"></div>
+            </section>
         </main>
+
         <footer>
             <p>&copy;2026. Todos los derechos reservados.</p>
             <p>
                 Este sitio web es un proyecto de fans y no está afiliado, autorizado ni respaldado por Jagex Ltd. RuneScape y Old School RuneScape son marcas registradas de Jagex Ltd.
             </p>
             <p>
-                Ciertos elstrongentos gráficos (assets), iconos e información son proporcionados por <a href="https://oldschool.runescape.wiki/" target="_blank" rel="noopener">OSRS Wiki</a>
+                Ciertos elementos gráficos (assets), iconos e información son proporcionados por
+                <a href="https://oldschool.runescape.wiki/" target="_blank" rel="noopener">OSRS Wiki</a>
                 bajo la licencia <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="noopener">CC BY-NC-SA 3.0</a>.
             </p>
         </footer>
