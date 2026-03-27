@@ -49,8 +49,8 @@ body {
 
 h2 {
     font-size: var(--textoMediano);
-    text-align: center;
     display: inline-block;
+    text-align: center;
 }
 
 a {
@@ -306,6 +306,39 @@ aside {
   border-color: var(--bordeOscuro);
 }
 
+/*toast*/
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.success {
+  background: #28a745;
+}
+
+.toast.error {
+  background: #dc3545;
+}
+
+.toast.info {
+  background: #333;
+}
+
 /*footer*/
 
 footer {
@@ -352,6 +385,6 @@ footer {
     }
 
     .panel-tareas {
-        width: 67%;
+        width: 66%;
     }
 }
