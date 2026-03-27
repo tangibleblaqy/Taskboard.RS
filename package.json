@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./server/src/index.js",
+    "dev:full": "npm run dev",
     "watch": "npx @tailwindcss/cli -i public/css/input.css -o public/css/output.css --watch"
   },
   "repository": {

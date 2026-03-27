@@ -1,10 +1,21 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
 import express from 'express'; 
 import { tareasRouter } from './routes/tareas-routes.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const publicPath = path.resolve(__dirname, '../../public');
 
 const app = express();
 
 app.use(express.json());
-app.use('/api', tareasRouter);
+app.use('/api/v1/tareas', tareasRouter);
+app.use(express.static(publicPath));
+app.use((req, res, next) => {
+  if (req.path.startsWith('/api/')) return next();
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
