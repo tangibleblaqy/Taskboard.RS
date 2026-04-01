@@ -1,7 +1,7 @@
 import express from "express";
 
 const router = express.Router();
-import * as tareasController from "../controllers/tareas-controller.js";
+import * as tareasController from "../controllers/tareas-controllers.js";
 
 //GET tareas
 router.get("/", tareasController.recuperarTareas);

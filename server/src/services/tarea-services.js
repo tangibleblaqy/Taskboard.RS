@@ -15,6 +15,7 @@ const validarTarea = (nombre, categoria, id = null) => {
         err.status = 400;
         throw err;
     }
+    
     if(tareas.some(tarea => tarea.nombre.toLowerCase() === nombre.toLowerCase() && tarea.id !== id)) {
         const err = new Error("No puede haber tareas repetidas");
         err.status = 400;
@@ -24,12 +25,12 @@ const validarTarea = (nombre, categoria, id = null) => {
 }
 
 //mostrar tareas
-export function recuperarTareaas() {
+export function recuperarTareas() {
     return tareas;
 }
 
 //crear tareas
-export function crearTareas(nombre, categoria) {
+export function crearTarea(nombre, categoria) {
     validarTarea(nombre, categoria);
 
     const nuevaTarea = { 
@@ -44,7 +45,7 @@ export function crearTareas(nombre, categoria) {
 }
 
 //editar tareas
-export function editarTareas(nombreNuevo, categoriaNueva, id) {
+export function editarTarea(nombreNuevo, categoriaNueva, id) {
     const tarea = tareas.find(tarea => tarea.id === id);
     if (!tarea) {
         const err = new Error("Tarea no encontrada");
@@ -60,7 +61,7 @@ export function editarTareas(nombreNuevo, categoriaNueva, id) {
 }
 
 //completar tarea
-export function completarTareas(id) {
+export function completarTarea(id) {
     const tarea = tareas.find(tarea => tarea.id === id);
     if (!tarea) {
         const err = new Error("Tarea no encontrada");
@@ -73,7 +74,7 @@ export function completarTareas(id) {
 }
 
 //eliminar tareas
-export function eliminarTareas(id) {
+export function eliminarTarea(id) {
     const index = tareas.findIndex(tarea => tarea.id === id);
     if (index === -1) {
         const err = new Error("Tarea no encontrada");
@@ -86,17 +87,16 @@ export function eliminarTareas(id) {
 }
 
 //completar todo
-export function completarTodas() {
+export function completarTodo() {
     tareas.forEach(tarea => tarea.completada = true);
 }
 
 //borrar tareas completadas
-export function eliminarTareasCompletadaas() {
+export function eliminarTareasCompletadas() {
     const tareasNoCompletadas = tareas.filter(tarea => !tarea.completada);
     const tareasCompletadas = tareas.filter(tarea => tarea.completada);
     const idTareasEliminadas = [];
     tareasCompletadas.forEach(tarea => {
-        const index = tareas.findIndex(t => t.id === tarea.id);
         idTareasEliminadas.push(tarea.id);
     });
     tareas.length = 0;
