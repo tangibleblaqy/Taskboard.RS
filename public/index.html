@@ -1,93 +1,149 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <title>TASKBOARD.RS</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="module" src="./src/js/main.js" defer></script>
-        <link rel="stylesheet" href="./css/output.css">
-    </head>
-    <body>
-        <header>
-            <img src="./assets/Gnomechild_(Steam_Emoticon).png" alt="gnomechild Icon">
-            <h1>TASKBOARD.RS</h1>
-            <button id="tema">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2"/><path d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715"/><path d="M16 12a4 4 0 0 0-4-4"/><path d="m19 5-1.256 1.256"/><path d="M20 12h2"/></svg>
-            </button>
-        </header>
+<!doctype html>
+<html lang="es" class=" ">
+  <head>
+    <meta charset="utf-8" />
+    <title>TASKBOARD.RS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module" src="./src/js/main.js" defer></script>
+    <link rel="stylesheet" href="./css/output.css" />
+  </head>
+  <body>
+    <header>
+      <img
+        src="./assets/Gnomechild_(Steam_Emoticon).png"
+        alt="gnomechild Icon"
+      />
+      <h1>TASKBOARD.RS</h1>
+      <button id="tema">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 2v2" />
+          <path
+            d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715"
+          />
+          <path d="M16 12a4 4 0 0 0-4-4" />
+          <path d="m19 5-1.256 1.256" />
+          <path d="M20 12h2" />
+        </svg>
+      </button>
+    </header>
 
-        <main>
-            <aside>
-                <div class="panel-lateral">
-                    <form id="formularioTarea">
-                        <h2>Crear tarea</h2>
-                        <div class="fila-input">
-                            <select id="tipo">
-                                <option value="skilling">Skilling</option>
-                                <option value="bossing">Bossing</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                            <input type="text" placeholder="Nombre de la tarea..." name="input" id="creador">
-                        </div>
-                    </form>
+    <main>
+      <aside>
+        <div class="panel-lateral">
+          <form id="formularioTarea">
+            <h2>Crear tarea</h2>
+            <div class="fila-input">
+              <select id="tipo">
+                <option value="skilling">Skilling</option>
+                <option value="bossing">Bossing</option>
+                <option value="otros">Otro</option>
+              </select>
+              <input
+                type="text"
+                placeholder="Nombre de la tarea..."
+                name="input"
+                id="creador"
+              />
+            </div>
+          </form>
 
-                    <section id="seccionBuscador">
-                        <h2>Buscar tarea</h2>
-                        <input type="search" placeholder="Buscar una tarea..." name="buscar" id="buscador">
-                    </section>
-                </div>
+          <section id="seccionBuscador">
+            <h2>Buscar tarea</h2>
+            <input
+              type="search"
+              placeholder="Buscar una tarea..."
+              name="buscar"
+              id="buscador"
+            />
+          </section>
+        </div>
 
-                <section id="estadisticas">
-                    <div class="estadisticas-titulo">
-                        <h2>Estadísticas:</h2>
-                    </div>
-                    <div id="textoFelicitacion">
-                        <h2>¡Has completado todas tus tareas!</h2>
-                    </div>
-                    <div class="estadisticas-contenido">
-                        <div class="estadisticas-lista">
-                            <p>Tareas Totales: <strong id="tareasTotales">0</strong></p>
-                            <p>Completadas: <strong id="tareasCompletas">0</strong></p>
-                            <p>Skilling: <strong id="tareasSkilling">0</strong></p>
-                            <p>Bossing: <strong id="tareasBossing">0</strong></p>
-                            <p>Otros: <strong id="otrasTareas">0</strong></p>
-                        </div>
-                        <img src="./assets/Party_(emote).gif" alt="baile celebracion" id="baile">
-                    </div>
-                </section>
-            </aside>
+        <section id="estadisticas">
+          <div class="estadisticas-titulo">
+            <h2>Estadísticas:</h2>
+          </div>
+          <div id="textoFelicitacion">
+            <h2>¡Has completado todas tus tareas!</h2>
+          </div>
+          <div class="estadisticas-contenido">
+            <div class="estadisticas-lista">
+              <p>Tareas Totales: <strong id="tareasTotales">0</strong></p>
+              <p>Completadas: <strong id="tareasCompletas">0</strong></p>
+              <p>Skilling: <strong id="tareasSkilling">0</strong></p>
+              <p>Bossing: <strong id="tareasBossing">0</strong></p>
+              <p>Otros: <strong id="otrasTareas">0</strong></p>
+            </div>
+            <img
+              src="./assets/Party_(emote).gif"
+              alt="baile celebracion"
+              id="baile"
+            />
+          </div>
+        </section>
+      </aside>
 
-            <section class="panel-tareas borderOSRS">
-                <div class="seccion-titulo">
-                    <h2>Tareas actuales:</h2>
-                </div>
-                <div id="chathead">
-                    <img src="./assets/Gnome_child_chathead.png" alt="gnomechild_chatbox">
-                </div>
-                <div id="botonTodo">
-                    <button id="completarTodo" class="botonCompletar">Completar todo</button>
-                    <button id="borrarTodo" class="botonBorrar">Borrar completados</button>
-                </div>
-                <div id="filtros">
-                    <button id="completado" class="botonFiltro">Completadas</button>
-                    <button id="skilling" class="botonFiltro">Skilling</button>
-                    <button id="bossing" class="botonFiltro">Bossing</button>
-                    <button id="otro" class="botonFiltro">Otro</button>
-                </div>
-                <div id="tareas"></div>
-            </section>
-        </main>
-        <div id="toast" class="toast"></div>
-        <footer>
-            <p>&copy;2026. Todos los derechos reservados.</p>
-            <p>
-                Este sitio web es un proyecto de fans y no está afiliado, autorizado ni respaldado por Jagex Ltd. RuneScape y Old School RuneScape son marcas registradas de Jagex Ltd.
-            </p>
-            <p>
-                Ciertos elementos gráficos (assets), iconos e información son proporcionados por
-                <a href="https://oldschool.runescape.wiki/" target="_blank" rel="noopener">OSRS Wiki</a>
-                bajo la licencia <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="noopener">CC BY-NC-SA 3.0</a>.
-            </p>
-        </footer>
-    </body>
+      <section class="panel-tareas borderOSRS">
+        <div class="seccion-titulo">
+          <h2>Tareas actuales:</h2>
+        </div>
+        <div id="chathead">
+          <img
+            src="./assets/Gnome_child_chathead.png"
+            alt="gnomechild_chatbox"
+          />
+        </div>
+        <div id="botonTodo">
+          <button id="completarTodo" class="botonCompletar">
+            Completar todo
+          </button>
+          <button id="borrarTodo" class="botonBorrar">
+            Borrar completados
+          </button>
+        </div>
+        <div id="filtros">
+          <button id="completado" class="botonFiltro">Completadas</button>
+          <button id="skilling" class="botonFiltro">Skilling</button>
+          <button id="bossing" class="botonFiltro">Bossing</button>
+          <button id="otro" class="botonFiltro">Otro</button>
+        </div>
+        <div id="tareas"></div>
+      </section>
+    </main>
+    <div id="toast" class="toast"></div>
+    <footer>
+      <p>&copy;2026. Todos los derechos reservados.</p>
+      <p>
+        Este sitio web es un proyecto de fans y no está afiliado, autorizado ni
+        respaldado por Jagex Ltd. RuneScape y Old School RuneScape son marcas
+        registradas de Jagex Ltd.
+      </p>
+      <p>
+        Ciertos elementos gráficos (assets), iconos e información son
+        proporcionados por
+        <a
+          href="https://oldschool.runescape.wiki/"
+          target="_blank"
+          rel="noopener"
+          >OSRS Wiki</a
+        >
+        bajo la licencia
+        <a
+          href="https://creativecommons.org/licenses/by-nc-sa/3.0/"
+          target="_blank"
+          rel="noopener"
+          >CC BY-NC-SA 3.0</a
+        >.
+      </p>
+    </footer>
+  </body>
 </html>
