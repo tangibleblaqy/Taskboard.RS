@@ -218,6 +218,7 @@ aside {
   padding: 0 4px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .seccion-titulo {
@@ -442,4 +443,52 @@ footer {
   .panel-tareas {
     width: 66%;
   }
+}
+
+/*loading*/
+
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 10;
+}
+
+.dark .loading {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--colorFondoSecundarioClaro);
+  border-top: 4px solid var(--bordeClaro);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.dark .spinner {
+  border-color: var(--colorFondoSecundarioOscuro);
+  border-top-color: var(--bordeOscuro);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading p {
+  margin-top: 10px;
+  font-size: var(--textoPequeno);
 }

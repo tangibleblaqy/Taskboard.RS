@@ -5,6 +5,7 @@ const buscador = document.getElementById("buscador");
 const creador = document.getElementById("creador");
 const tipo = document.getElementById("tipo");
 const tareas = document.getElementById("tareas");
+const loading = document.getElementById("loading");
 
 const estadisticas = document.getElementById("estadisticas");
 const chatHead = document.getElementById("chathead");
@@ -31,14 +32,25 @@ const baile = document.getElementById("baile");
 let tareasGuardadas = [];
 //cargar tareas
 const cargarTareas = async () => {
-  const tareas = await apiRequest("tareas", {});
-  tareasGuardadas.push(...tareas);
-  console.log(tareasGuardadas);
-  tareasGuardadas.forEach((tarea) => crearTarea(tarea));
-  mostrarInformacion();
-  actualizarEstadisticas();
+  try {
+    const tareas = await apiRequest("tareas", {});
+    tareasGuardadas.push(...tareas);
+    console.log(tareasGuardadas);
+    tareasGuardadas.forEach((tarea) => crearTarea(tarea));
+    mostrarInformacion();
+    actualizarEstadisticas();
+  } finally {
+    loading.style.display = "none";
+    // Mostrar estadísticas y búsqueda después de cargar
+    estadisticas.style.display = "flex";
+    seccionBuscador.style.display = "block";
+  }
 };
 
+// Mostrar loading inicialmente y ocultar estadísticas/búsqueda
+loading.style.display = "flex";
+estadisticas.style.display = "none";
+seccionBuscador.style.display = "none";
 cargarTareas();
 
 const borrarTarea = async (id) => {
