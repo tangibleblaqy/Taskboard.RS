@@ -14,7 +14,7 @@
     A task management application designed for RuneScape players to organize and track their in-game activities.
     <br />
     <br />
-    <a href="https://github.com/tangibleblaqy/Taskboard.RS">View Demo</a>
+    <a href="https://taskboard-rs.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/tangibleblaqy/Taskboard.RS/issues">Report Bug</a>
   </p>

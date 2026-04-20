@@ -14,7 +14,7 @@ Español | [English](README.md)
     Una aplicación de gestión de tareas diseñada para jugadores de RuneScape para organizar y rastrear sus actividades en el juego.
     <br />
     <br />
-    <a href="https://github.com/tangibleblaqy/Taskboard.RS">Ver Demo</a>
+    <a href="https://taskboard-rs.vercel.app/">Ver Demo</a>
     ·
     <a href="https://github.com/tangibleblaqy/Taskboard.RS/issues">Reportar Bug</a>
   </p>
